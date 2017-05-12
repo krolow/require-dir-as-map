@@ -19,7 +19,7 @@ const filter = (file) => {
   return file;
 };
 
-const map = ({ file, module }) {
+const map = ({ file, module }) => {
   return module.somethingThere || file.split('.')[0];
 }
 
