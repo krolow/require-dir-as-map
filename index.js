@@ -5,7 +5,7 @@ const fs = require('fs');
 module.exports = function requireDirAsMap(directory, options) {
   assert(directory, 'It\'s necessary to pass a directory path');
 
-  const map    = options && options.map || defaultMap;
+  const map = (options && options.map) || defaultMap;
   const filter = options && options.filter;
 
 
@@ -13,7 +13,7 @@ module.exports = function requireDirAsMap(directory, options) {
 
   return filterFilesIfNeeded(filter, files)
     .reduce((modules, file) => {
-      const module = require(`${directory}${file}`);
+      const module = require(`${directory}${file}`); // eslint-disable-line import/no-dynamic-require,global-require
       const name = map({ file, module });
 
       modules.set(name, module);

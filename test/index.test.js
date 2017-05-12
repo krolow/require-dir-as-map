@@ -3,7 +3,6 @@ const requireDirAsMap = require('../');
 
 const fixturesDir = `${__dirname}/fixtures/`;
 describe('require-dir-as-map', () => {
-
   it('should return a hash table', () => {
     const modules = requireDirAsMap(fixturesDir);
     assert(modules instanceof Map);
@@ -19,7 +18,7 @@ describe('require-dir-as-map', () => {
 
   it('should return a map containing files of the given directory', () => {
     const modules = requireDirAsMap(fixturesDir);
-    assert.equal(modules.size, 3)
+    assert.equal(modules.size, 3);
     assert(modules.has('a'));
     assert.equal(modules.get('a')(), 'a');
 
@@ -31,12 +30,12 @@ describe('require-dir-as-map', () => {
   });
 
   it('should be able to filter files based on a function', () => {
-    const filter = (file) => file.endsWith('c.js');
+    const filter = file => file.endsWith('c.js');
     const modules = requireDirAsMap(fixturesDir, { filter });
 
     assert.equal(modules.size, 1);
     assert(modules.has('c'));
-    assert.equal(modules.get('c')(), 'c')
+    assert.equal(modules.get('c')(), 'c');
   });
 
   it('should be able to map files to a different name', () => {
@@ -48,7 +47,7 @@ describe('require-dir-as-map', () => {
       return file.split('.')[0].toUpperCase();
     };
 
-    const modules = requireDirAsMap(fixturesDir, { map })
+    const modules = requireDirAsMap(fixturesDir, { map });
     assert(!modules.has('a'));
     assert(modules.has('A'));
     assert(!modules.has('b'));
