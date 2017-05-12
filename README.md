@@ -1,5 +1,11 @@
 # require-dir-as-map
 
+[![Build
+Status](https://travis-ci.org/krolow/require-dir-as-map.svg?branch=master)](https://travis-ci.org/krolow/require-dir-as-map)
+[![npm
+version](https://badge.fury.io/js/require-dir-as-map.svg)](http://badge.fury.io/js/require-dir-as-map)
+
+
 > Require a directory and get back a `new Map()`
 
 
